@@ -11,7 +11,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "firebase": "^8.2.4",
-    "framer-motion": "^3.2.2-rc.1",
+    "framer-motion": "^3.10.6",
     "popmotion": "^9.1.0",
     "react": "^17.0.1",
     "react-awesome-reveal": "^3.7.0",

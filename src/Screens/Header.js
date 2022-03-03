@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/counter/userSlice";
+import FindAStore from "../FindAStore";
+import { Example } from "../Example";
 import "./Header.css";
+import LogoutButton from "../LogoutButton";
+import SignInButton from "../SignInButton";
+import SignUpButton from "../SignUpButton";
 
-function Header() {
+function Header({ menuPage }) {
+	const user = useSelector(selectUser);
 	return (
-		<div className="header">
+		<div className={`header ${menuPage && "header__menuPage"}`}>
 			<div className="header__left">
 				<Link to="/" className="header__logo">
 					<img
@@ -22,7 +30,24 @@ function Header() {
 					Gift Cards
 				</Link>
 			</div>
-			<div className="header__right"></div>
+			<div className="header__right">
+				<Example />
+				<FindAStore />
+				{!user ? (
+					<>
+						<Link to="/account/signin">
+							<SignInButton />
+						</Link>
+						<Link to="/account/create">
+							<SignUpButton />
+						</Link>
+					</>
+				) : (
+					<div className="header__logout">
+						{menuPage ? <LogoutButton /> : <Link to="/menu">Order Now</Link>}
+					</div>
+				)}
+			</div>
 		</div>
 	);
 }
