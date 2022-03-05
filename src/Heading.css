@@ -1,0 +1,13 @@
+.heading{
+  text-align: center;
+  margin: 60px;
+  color: #1e3932;
+  text-transform: uppercase;
+  font-size: 45px;
+  font-weight: 800;
+}
+@media (max-width: 768px) {
+  .heading{
+    font-size: 28px;
+  }
+}
